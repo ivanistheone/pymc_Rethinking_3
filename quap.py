@@ -12,13 +12,15 @@ import pymc as pm
 
 def quap(vars, n_samples=10_000):
     """
-    Finds the quadratic approximation to the posterior, also known as the Laplace approximation.
-    NOTE: The quadratic approximation only works well for unimodal and roughly symmetrical posteriors of continuous variables.
+    Finds the quadratic approximation to the posterior,
+    also known as the Laplace approximation.
+    NOTE: The quadratic approximation only works well for unimodal
+    and roughly symmetrical posteriors of continuous variables.
     Use at your own risk.
     See Chapter 4 of "Bayesian Data Analysis" 3rd edition for background.
-    Returns an arviz.InferenceData object for compatibility by sampling from the approximated quadratic posterior.
+    Returns an arviz.InferenceData object for compatibility by sampling
+    from the approximated quadratic posterior.
     Note these are NOT MCMC samples.
-    Also returns the exact posterior approximation as a scipy.stats.multivariate_normal distribution.
 
     Parameters
     ----------
@@ -31,8 +33,6 @@ def quap(vars, n_samples=10_000):
     -------
     arviz.InferenceData:
         InferenceData with samples from the approximate posterior
-    scipy.stats.multivariate_normal:
-        Multivariate normal posterior approximation
     """
     map = pm.find_MAP(vars=vars)
     H = pm.find_hessian(map, vars=vars)
@@ -50,4 +50,5 @@ def quap(vars, n_samples=10_000):
         if var_size == 1:
             samples[v.name] = samples[v.name].squeeze(axis=-1)
         i += var_size
-    return az.convert_to_inference_data(samples), posterior
+    return az.convert_to_inference_data(samples)
+
