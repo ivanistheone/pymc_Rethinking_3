@@ -13,4 +13,5 @@ The code in this repo is heavily inspired by the following prior work:
 - https://github.com/pymc-devs/pymc-resources/tree/main/Rethinking_2
 - https://github.com/kpjmcg/Statistical-Rethinking-2023-Python-Notes/tree/master
 - https://github.com/dustinstansbury/statistical-rethinking-2023/tree/main 
+- https://github.com/rasmusbergpalm/pymc3-quap
 
