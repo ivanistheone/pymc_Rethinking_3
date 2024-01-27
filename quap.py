@@ -34,7 +34,8 @@ def quap(vars, n_samples=10_000):
     arviz.InferenceData:
         InferenceData with samples from the approximate posterior
     """
-    map = pm.find_MAP(vars=vars)
+    map = pm.find_MAP(vars=vars, method="BFGS")
+
     H = pm.find_hessian(map, vars=vars)
     cov = np.linalg.inv(H)
     mean = np.concatenate([np.atleast_1d(map[v.name]) for v in vars])
