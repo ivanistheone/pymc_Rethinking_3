@@ -1,6 +1,9 @@
 # Inspiration
 Inspiration
 
+# Debugging and test code
+cut_material.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
